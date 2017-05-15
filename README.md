@@ -2,7 +2,7 @@
 
 Anforderungen :
 
-Laufende Postgres Datenbank mit erstellter Datenbank namens Postgis, nutzer mit Name testnutzer und passwort testpasswort
+Laufende Postgres Datenbank mit erstellter Datenbank namens postgis, nutzer mit Name testnutzer und passwort testpasswort
 
 mit mvn clean packge kannst du dir die jar bauen.
 
