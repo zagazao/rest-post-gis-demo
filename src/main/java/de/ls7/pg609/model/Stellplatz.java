@@ -2,6 +2,7 @@ package de.ls7.pg609.model;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.vividsolutions.jts.geom.Geometry;
 import com.vividsolutions.jts.geom.Point;
 import de.ls7.pg609.model.desirialize.JsonToPointDeserializer;
 import de.ls7.pg609.model.desirialize.PointToJsonSerializer;
@@ -23,6 +24,11 @@ public class Stellplatz {
     @JsonSerialize(using = PointToJsonSerializer.class)
     @JsonDeserialize(using = JsonToPointDeserializer.class)
     private Point location;
+
+    @Enumerated
+    private ParkplatzZustand zustand;
+
+    private Geometry geometry;
 
     private Time startTime;
 
