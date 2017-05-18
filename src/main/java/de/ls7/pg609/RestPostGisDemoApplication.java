@@ -1,4 +1,4 @@
-package de.ls7.pg607;
+package de.ls7.pg609;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

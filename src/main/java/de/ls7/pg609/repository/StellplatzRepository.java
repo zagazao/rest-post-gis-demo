@@ -1,6 +1,6 @@
-package de.ls7.pg607.repository;
+package de.ls7.pg609.repository;
 
-import de.ls7.pg607.model.Stellplatz;
+import de.ls7.pg609.model.Stellplatz;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

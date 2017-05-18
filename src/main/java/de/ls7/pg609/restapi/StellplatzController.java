@@ -1,15 +1,16 @@
-package de.ls7.pg607.restapi;
+package de.ls7.pg609.restapi;
 
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.GeometryFactory;
 import com.vividsolutions.jts.geom.Point;
-import de.ls7.pg607.model.Stellplatz;
-import de.ls7.pg607.repository.StellplatzRepository;
+import de.ls7.pg609.model.Stellplatz;
+import de.ls7.pg609.repository.StellplatzRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -30,6 +31,7 @@ public class StellplatzController {
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET, produces = {"application/json"})
+    @ResponseBody
     public ResponseEntity<Iterable<Stellplatz>> listStellplaetze() {
         System.out.println(stellplatzRepository.findAll());
         return new ResponseEntity<Iterable<Stellplatz>>(stellplatzRepository.findAll(),HttpStatus.OK);
