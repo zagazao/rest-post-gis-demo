@@ -24,7 +24,7 @@ public class JsonToPointDeserializer extends JsonDeserializer<Point> {
 
         try {
             String text = jp.getText();
-            if(text == null || text.length() <= 0)
+            if (text == null || text.length() <= 0)
                 return null;
 
             String[] coordinates = text.replaceFirst("POINT ?\\(", "").replaceFirst("\\)", "").split(" ");
@@ -33,8 +33,7 @@ public class JsonToPointDeserializer extends JsonDeserializer<Point> {
 
             Point point = geometryFactory.createPoint(new Coordinate(lat, lon));
             return point;
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             return null;
         }
     }

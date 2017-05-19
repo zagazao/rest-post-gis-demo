@@ -16,15 +16,14 @@ public class PointToJsonSerializer extends JsonSerializer<Point> {
             JsonProcessingException {
 
         String jsonValue = "null";
-        try
-        {
-            if(value != null) {
+        try {
+            if (value != null) {
                 double lat = value.getY();
                 double lon = value.getX();
                 jsonValue = String.format("POINT (%s %s)", lat, lon);
             }
+        } catch (Exception e) {
         }
-        catch(Exception e) {}
 
         jgen.writeString(jsonValue);
     }

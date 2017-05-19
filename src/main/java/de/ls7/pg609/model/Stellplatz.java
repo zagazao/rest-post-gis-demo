@@ -44,8 +44,8 @@ public class Stellplatz {
     public Stellplatz(String name, Point p) {
         this.name = name;
         this.location = p;
-        this.startTime = java.sql.Time.valueOf( "07:05:00" );
-        this.endTime = java.sql.Time.valueOf( "19:05:00" );
+        this.startTime = java.sql.Time.valueOf("07:05:00");
+        this.endTime = java.sql.Time.valueOf("19:05:00");
     }
 
     public Long getId() {
