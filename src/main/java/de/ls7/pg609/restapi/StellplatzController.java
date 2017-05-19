@@ -35,15 +35,12 @@ public class StellplatzController {
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET, produces = {"application/json"})
-    @ResponseBody
-    public ResponseEntity<Iterable<Stellplatz>> listStellplaetze() {
+    public @ResponseBody
+    ResponseEntity<Iterable<Stellplatz>> listStellplaetze() {
         System.out.println(stellplatzRepository.findAll());
         System.out.println(parkplatzRepository.findAll());
-
         return new ResponseEntity<Iterable<Stellplatz>>(stellplatzRepository.findAll(), HttpStatus.OK);
     }
-
-
 
 
     @RequestMapping(value = "/createStellplatz", method = RequestMethod.POST)

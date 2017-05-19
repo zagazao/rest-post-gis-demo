@@ -1,15 +1,10 @@
 package de.ls7.pg609;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  * Dies ist die Mainklasse, welche die Springanwendung startet. Die @SpringBootApplication - Annotation ist beinhaltet
@@ -23,29 +18,17 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * Unter localhost:8080/swagger-ui.html findet man die auto generierte API-Dokumentation.
  */
 @SpringBootApplication
-@EnableSwagger2
-public class RestPostGisDemoApplication {
+public class RestPostGisDemoApplication implements CommandLineRunner {
+
+    @Autowired
+    JdbcTemplate jdbcTemplate;
 
     public static void main(String[] args) {
         SpringApplication.run(RestPostGisDemoApplication.class, args);
     }
 
-    @Bean
-    public Docket simpleDiffServiceApi() {
-        return new Docket(DocumentationType.SWAGGER_2).groupName("DatabaseDemo")
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.any())
-                .build()
-                .pathMapping("/");
-
-    }
-
-    private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("A simple demo.")
-                .description("A simple REST service made with Spring Boot in Java")
-                .version("1.0")
-                .build();
+    @Override
+    public void run(String... strings) throws Exception {
+        jdbcTemplate.execute("SELECT * FROM PARKPLATZ");
     }
 }

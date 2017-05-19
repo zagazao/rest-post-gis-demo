@@ -1,6 +1,11 @@
 package de.ls7.pg609.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Time;
 import java.time.DayOfWeek;
 
@@ -9,7 +14,7 @@ import java.time.DayOfWeek;
  */
 @Entity
 @Table(name = "OEFFNUNGSZEITEN")
-public class Oeffnungszeiten {
+public class Öffnungszeiten {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,10 +27,10 @@ public class Oeffnungszeiten {
 
     private Time endTime;
 
-    public Oeffnungszeiten() {
+    public Öffnungszeiten() {
     }
 
-    public Oeffnungszeiten(Long id, DayOfWeek day, Time startTime, Time endTime) {
+    public Öffnungszeiten(Long id, DayOfWeek day, Time startTime, Time endTime) {
         this.id = id;
         this.day = day;
         this.startTime = startTime;
@@ -66,7 +71,7 @@ public class Oeffnungszeiten {
 
     @Override
     public String toString() {
-        return "Oeffnungszeiten{" +
+        return "Öffnungszeiten{" +
                 "id=" + id +
                 ", day=" + day +
                 ", startTime=" + startTime +
@@ -107,8 +112,8 @@ public class Oeffnungszeiten {
             return this;
         }
 
-        public Oeffnungszeiten build() {
-            Oeffnungszeiten öffnungszeiten = new Oeffnungszeiten(id, day, startTime, endTime);
+        public Öffnungszeiten build() {
+            Öffnungszeiten öffnungszeiten = new Öffnungszeiten(id, day, startTime, endTime);
             return öffnungszeiten;
         }
     }
