@@ -14,7 +14,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.sql.Time;
 
 @Entity
 @Table(name = "stellplaetze")
@@ -36,9 +35,6 @@ public class Stellplatz {
 
     private Geometry geometry;
 
-    private Time startTime;
-
-    private Time endTime;
 
     /**
      * Default constructor required.
@@ -50,8 +46,6 @@ public class Stellplatz {
     public Stellplatz(String name, Point p) {
         this.name = name;
         this.location = p;
-        this.startTime = java.sql.Time.valueOf("07:05:00");
-        this.endTime = java.sql.Time.valueOf("19:05:00");
     }
 
     public Long getId() {
@@ -76,22 +70,6 @@ public class Stellplatz {
 
     public void setLocation(Point location) {
         this.location = location;
-    }
-
-    public Time getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Time startTime) {
-        this.startTime = startTime;
-    }
-
-    public Time getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Time endTime) {
-        this.endTime = endTime;
     }
 
     @Override

@@ -1,8 +1,8 @@
 package de.ls7.pg609.model;
 
 /**
- * Created by lukas on 18.05.17.
+ * Repräsentiert den Zustand eines Parkplatzes.
  */
 public enum ParkplatzZustand {
-    FREI, BELEGT
+    FREI, BELEGT;
 }
