@@ -33,9 +33,6 @@ public class Stellplatz {
     @Enumerated
     private ParkplatzZustand zustand;
 
-    private Geometry geometry;
-
-
     /**
      * Default constructor required.
      */
@@ -72,12 +69,4 @@ public class Stellplatz {
         this.location = location;
     }
 
-    @Override
-    public String toString() {
-        return "Stellplatz{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", location=" + location.toString() +
-                '}';
-    }
 }

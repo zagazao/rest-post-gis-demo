@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Dieses Interface gibt Zugriff auf die Datenbank.
  */
-public interface StellplatzRepository extends CrudRepository<Stellplatz, Long> {
+public interface ParkboxRepository extends CrudRepository<Stellplatz, Long> {
 
     /**
      * Für Methoden, welche nach diesem Schema generiert werden, werden automatische SQL-Queries geschrieben.

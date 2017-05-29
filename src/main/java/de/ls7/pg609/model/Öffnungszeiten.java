@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.sql.Time;
 import java.time.DayOfWeek;
+import java.time.Duration;
+import java.util.Date;
 
 /**
  * Created by lukas on 19.05.2017.
@@ -67,6 +69,11 @@ public class Öffnungszeiten {
 
     public void setEndTime(Time endTime) {
         this.endTime = endTime;
+    }
+
+    public boolean isOpened(Date date) {
+        //TODO: Implement
+        return true;
     }
 
     @Override

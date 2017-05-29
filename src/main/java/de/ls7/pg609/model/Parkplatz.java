@@ -1,6 +1,16 @@
 package de.ls7.pg609.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -61,13 +71,17 @@ public class Parkplatz {
         this.adresse = adresse;
     }
 
-    @Override
-    public String toString() {
-        return "Parkplatz{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", offnungszeiten=" + offnungszeiten +
-                ", adresse=" + adresse +
-                '}';
+    /**
+     * Gibt true zurück, falls der Parkplatz zu dem übergebenem Datum geöffnet ist.
+     * @param date Datum zum checken der Öffnungszeiten
+     * @return true, falls geöffnet
+     */
+    public boolean isOpened(Date date) {
+        for (Öffnungszeiten öffnungszeiten : offnungszeiten) {
+            if (öffnungszeiten.isOpened(date)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
