@@ -1,5 +1,7 @@
 package de.ls7.pg609;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,6 +22,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @SpringBootApplication
 public class RestPostGisDemoApplication implements CommandLineRunner {
 
+    private final static Logger logger = LoggerFactory.getLogger(RestPostGisDemoApplication.class.getName());
+
     @Autowired
     JdbcTemplate jdbcTemplate;
 
@@ -29,6 +33,6 @@ public class RestPostGisDemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        jdbcTemplate.execute("SELECT * FROM PARKPLATZ");
+        logger.info("Guten Tag.");
     }
 }

@@ -33,6 +33,6 @@ public class ParkplatzController {
 
 
     //TODO: Find nearest parkplatz(in Radius)
-    
+
 
 }

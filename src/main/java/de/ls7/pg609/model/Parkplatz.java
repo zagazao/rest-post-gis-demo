@@ -39,6 +39,8 @@ public class Parkplatz {
     @OneToOne
     private Adresse adresse;
 
+    private Double parkKosten;
+
     public Parkplatz() {
 
     }
@@ -73,6 +75,7 @@ public class Parkplatz {
 
     /**
      * Gibt true zurück, falls der Parkplatz zu dem übergebenem Datum geöffnet ist.
+     *
      * @param date Datum zum checken der Öffnungszeiten
      * @return true, falls geöffnet
      */
@@ -83,5 +86,13 @@ public class Parkplatz {
             }
         }
         return false;
+    }
+
+    public Double getParkKosten() {
+        return parkKosten;
+    }
+
+    public void setParkKosten(Double parkKosten) {
+        this.parkKosten = parkKosten;
     }
 }
